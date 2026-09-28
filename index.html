@@ -1,106 +1,1093 @@
+html 2
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HeDot. - Premium E-Commerce Store</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HeDot. | Playful Living</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green-900: #1B4332;
+      --green-700: #2D6A4F;
+      --green-400: #95D5B2;
+      --green-50: #F6FFF8;
+      --warm-white: #ffffff;
+      --text: #1d2a25;
+      --muted: #586861;
+      --line: rgba(27, 67, 50, 0.12);
+      --shadow-soft: 0 10px 28px rgba(27, 67, 50, 0.09);
+      --shadow-card: 0 14px 30px rgba(27, 67, 50, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(149, 213, 178, 0.24), transparent 30%),
+        linear-gradient(180deg, #f5fff9 0%, #f3fff6 100%);
+      color: var(--text);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1240px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(14px);
+      background: rgba(246, 255, 248, 0.75);
+      border-bottom: 1px solid rgba(27, 67, 50, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 82px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--green-900);
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--green-900), var(--green-700));
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      opacity: 0.9;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-900);
+      opacity: 1;
+    }
+
+    .nav-cta {
+      background: var(--green-900);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--green-700);
+      transform: translateY(-1px);
+    }
+
+    .hero {
+      padding: 74px 0 34px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(149, 213, 178, 0.26);
+      border: 1px solid rgba(27, 67, 50, 0.08);
+      color: var(--green-700);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 auto;
+      max-width: 800px;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      color: var(--green-900);
+    }
+
+    .subheadline {
+      margin: 18px auto 0;
+      max-width: 720px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 28px;
+      border-radius: 14px;
+      font-weight: 800;
+      font-size: 1rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--green-900);
+      color: white;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-700);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(27, 67, 50, 0.15);
+      color: var(--green-900);
+    }
+
+    .hero-visual {
+      margin-top: 52px;
+      width: min(1120px, 100%);
+      margin-left: auto;
+      margin-right: auto;
+      height: 330px;
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(149, 213, 178, 0.38), rgba(149, 213, 178, 0.1)),
+        rgba(255,255,255,0.5);
+      border: 1px solid rgba(27, 67, 50, 0.08);
+      box-shadow: 0 18px 50px rgba(27, 67, 50, 0.08);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: 40px 160px 30px 160px;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(27, 67, 50, 0.05);
+    }
+
+    .floating-card {
+      position: absolute;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(27, 67, 50, 0.08);
+      border-radius: 24px;
+      box-shadow: var(--shadow-card);
+      backdrop-filter: blur(10px);
+    }
+
+    .card-one {
+      left: 80px;
+      top: 50px;
+      width: 260px;
+      height: 180px;
+      padding: 22px 18px 16px;
+    }
+
+    .card-two {
+      right: 110px;
+      top: 38px;
+      width: 240px;
+      height: 195px;
+      padding: 18px 18px 16px;
+    }
+
+    .mini-label {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--green-700);
+    }
+
+    .mini-product {
+      margin-top: 18px;
+      height: 100px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #dff7e8, #a6d7b9);
+      display: grid;
+      place-items: center;
+      color: var(--green-900);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .logo-strip {
+      margin-top: 28px;
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      text-align: center;
+      color: rgba(27, 67, 50, 0.72);
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .logo-item {
+      min-height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.26);
+    }
+
+    .features {
+      padding: 72px 0 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.45);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px 22px 22px;
+      box-shadow: 0 8px 20px rgba(27, 67, 50, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px rgba(27, 67, 50, 0.07);
+    }
+
+    .feature-icon {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(149,213,178,0.65), rgba(149,213,178,1));
+      font-size: 28px;
+      color: var(--green-900);
+      margin-bottom: 18px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.5rem, 1.8vw, 2rem);
+      color: var(--green-900);
+    }
+
+    .feature-card p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .collection {
+      padding: 78px 0 20px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      color: var(--green-700);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.2;
+      color: var(--green-900);
+      letter-spacing: -0.04em;
+    }
+
+    .view-all {
+      color: var(--green-900);
+      font-weight: 800;
+      font-size: 14px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid rgba(27, 67, 50, 0.18);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 22px rgba(27, 67, 50, 0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 28px rgba(27, 67, 50, 0.08);
+    }
+
+    .product-visual {
+      position: relative;
+      height: 270px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(27, 67, 50, 0.08);
+    }
+
+    .visual-one {
+      background: linear-gradient(135deg, rgba(149, 213, 178, 0.9), rgba(167, 220, 188, 0.5));
+    }
+
+    .visual-two {
+      background: linear-gradient(135deg, rgba(191, 235, 208, 0.9), rgba(116, 187, 150, 0.6));
+    }
+
+    .visual-three {
+      background: linear-gradient(135deg, rgba(241, 254, 245, 1), rgba(156, 216, 180, 0.8));
+    }
+
+    .product-visual::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.28);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .product-visual::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.35);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(18deg);
+      border: 1px solid rgba(27,67,50,0.06);
+    }
+
+    .badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      background: rgba(27, 67, 50, 0.92);
+      color: white;
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .product-meta {
+      padding: 18px 18px 20px;
+    }
+
+    .product-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .product-card h3 {
+      margin: 14px 0 18px;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.3rem, 2vw, 1.8rem);
+      line-height: 1.25;
+      color: var(--green-900);
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .price {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--green-900);
+    }
+
+    .product-footer button {
+      background: var(--green-900);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .product-footer button:hover {
+      background: var(--green-700);
+      transform: translateY(-1px);
+    }
+
+    .promo {
+      padding: 90px 0 22px;
+    }
+
+    .promo-box {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 22px;
+      background: linear-gradient(135deg, rgba(27, 67, 50, 0.96), rgba(45, 106, 79, 0.85));
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 18px 35px rgba(27, 67, 50, 0.15);
+      min-height: 360px;
+    }
+
+    .promo-copy {
+      padding: 52px 52px 40px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .promo-kicker {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 800;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .promo-copy h2 {
+      margin: 14px 0 18px;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 3vw, 3.3rem);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .promo-copy p {
+      margin: 0 0 28px;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      max-width: 480px;
+    }
+
+    .promo-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .promo-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 22px;
+      border-radius: 14px;
+      font-weight: 800;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .promo-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .promo-btn.primary {
+      background: white;
+      color: var(--green-900);
+    }
+
+    .promo-btn.secondary {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: white;
+    }
+
+    .promo-visual {
+      position: relative;
+      background: linear-gradient(135deg, rgba(149, 213, 178, 0.55), rgba(149, 213, 178, 0.12));
+      min-height: 360px;
+    }
+
+    .promo-visual::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 32px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.2);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(12deg);
+    }
+
+    .promo-visual::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.24);
+      border: 1px solid rgba(255,255,255,0.15);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-14deg);
+    }
+
+    .testimonials {
+      padding: 80px 0 30px;
+    }
+
+    .testimonial-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      margin-bottom: 26px;
+      gap: 12px;
+    }
+
+    .testimonial-head h2 {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.2;
+      color: var(--green-900);
+      letter-spacing: -0.04em;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 10px 24px rgba(27, 67, 50, 0.04);
+    }
+
+    .stars {
+      color: #f3b319;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-card p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .person {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 54px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(149,213,178,0.75), rgba(45,106,79,0.65));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .person-name {
+      font-weight: 800;
+      color: var(--green-900);
+    }
+
+    .person-role {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .newsletter {
+      padding: 72px 0 80px;
+    }
+
+    .newsletter-box {
+      background: linear-gradient(135deg, rgba(149, 213, 178, 0.38), rgba(255,255,255,0.7));
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 40px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 10px 24px rgba(27, 67, 50, 0.05);
+    }
+
+    .newsletter-copy h2 {
+      margin: 0 0 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--green-900);
+      letter-spacing: -0.04em;
+    }
+
+    .newsletter-copy p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .newsletter-form {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: min(500px, 100%);
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      padding: 17px 18px;
+      border: 1px solid rgba(27, 67, 50, 0.12);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.75);
+      font: inherit;
+      color: var(--text);
+      outline: none;
+    }
+
+    .newsletter-form button {
+      border: none;
+      background: var(--green-900);
+      color: white;
+      padding: 17px 22px;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: var(--green-700);
+      transform: translateY(-1px);
+    }
+
+    footer {
+      border-top: 1px solid rgba(27, 67, 50, 0.1);
+      padding: 28px 0 42px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a:hover {
+      color: var(--green-900);
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .features,
+      .product-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .promo-box {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .newsletter-form {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        padding-top: 56px;
+      }
+
+      .hero-visual {
+        height: 250px;
+      }
+
+      .card-one {
+        left: 20px;
+        width: 180px;
+      }
+
+      .card-two {
+        right: 18px;
+        width: 170px;
+      }
+
+      .logo-strip,
+      .features,
+      .product-grid,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-header,
+      .testimonial-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation Header -->
-    <header class="navbar">
-        <div class="container">
-            <div class="navbar-brand">
-                <h1>HeDot.</h1>
-            </div>
-            <nav class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="products.html">Products</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <div class="nav-right">
-                <a href="cart.html" class="cart-icon">
-                    <span>🛒</span>
-                    <span class="cart-count" id="cartCount">0</span>
-                </a>
-            </div>
-        </div>
-    </header>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">H</div>
+        <span>HeDot.</span>
+      </div>
 
-    <!-- Hero Section -->
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">New In</a>
+        <a href="#">Collections</a>
+        <a href="#">About</a>
+        <a href="#" class="nav-cta">Shop Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
     <section class="hero">
-        <div class="hero-content">
-            <h2>Welcome to HeDot.</h2>
-            <p>Discover Premium Products Curated Just For You</p>
-            <a href="products.html" class="btn btn-primary">Shop Now</a>
+      <div class="container">
+        <div class="eyebrow">Fresh Finds for Everyday Joy</div>
+        <h1>Bring color to your cart.</h1>
+        <p class="subheadline">
+          Discover playful essentials and vibrant pieces made to brighten your routines, your home, and your day.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary">Explore Collection</a>
+          <a href="#" class="btn btn-secondary">View Bestsellers</a>
         </div>
+
+        <div class="hero-visual" aria-label="Featured products">
+          <div class="floating-card card-one">
+            <div class="mini-label">Trending</div>
+            <div class="mini-product">Spring Set</div>
+          </div>
+
+          <div class="floating-card card-two">
+            <div class="mini-label">Top Rated</div>
+            <div class="mini-product">Daily Picks</div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Featured Products -->
-    <section class="featured-products">
-        <div class="container">
-            <h2>Featured Products</h2>
-            <div class="products-grid" id="featuredProducts">
-                <!-- Products will be loaded here -->
-            </div>
-        </div>
+    <section class="container">
+      <div class="logo-strip" aria-label="Brand partners">
+        <div class="logo-item">Bloom</div>
+        <div class="logo-item">Nest & Co.</div>
+        <div class="logo-item">Veloura</div>
+        <div class="logo-item">Motive</div>
+        <div class="logo-item">Luma</div>
+      </div>
     </section>
 
-    <!-- Categories -->
-    <section class="categories">
-        <div class="container">
-            <h2>Shop by Category</h2>
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">👕</div>
-                    <h3>Fashion</h3>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">⚙️</div>
-                    <h3>Electronics</h3>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">🏠</div>
-                    <h3>Home & Living</h3>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">🎮</div>
-                    <h3>Gaming</h3>
-                </div>
-            </div>
-        </div>
+    <section class="container">
+      <div class="features">
+        <article class="feature-card">
+          <div class="feature-icon">✦</div>
+          <h3>Playful Picks</h3>
+          <p>Thoughtfully curated essentials designed to bring joy, personality, and a little extra color into everyday life.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">✓</div>
+          <h3>Fast & Easy</h3>
+          <p>From browsing to checkout, every detail is streamlined to make shopping feel effortless and enjoyable.</p>
+        </article>
+
+        <article class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Made for You</h3>
+          <p>Dress your lifestyle with well-loved items created for comfort, ease, and daily moments that matter.</p>
+        </article>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>HeDot.</h4>
-                    <p>Your trusted online shopping destination</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Email: info@hedot.com</p>
-                    <p>Phone: +1 (800) 123-4567</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 HeDot. All rights reserved.</p>
-            </div>
+    <section class="container collection">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">Fresh favorites</div>
+          <h2>Shop what everyone’s reaching for</h2>
         </div>
-    </footer>
+        <a href="#" class="view-all">View all</a>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-visual visual-one">
+            <span class="badge">Best Seller</span>
+          </div>
+          <div class="product-meta">
+            <div class="product-top">
+              <span>Home</span>
+              <span>★ 4.9</span>
+            </div>
+            <h3>Sunrise Ceramic Set</h3>
+            <div class="product-footer">
+              <span class="price">$42</span>
+              <button>Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-visual visual-two">
+            <span class="badge">New</span>
+          </div>
+          <div class="product-meta">
+            <div class="product-top">
+              <span>Lifestyle</span>
+              <span>★ 4.8</span>
+            </div>
+            <h3>Bloom Everyday Tote</h3>
+            <div class="product-footer">
+              <span class="price">$36</span>
+              <button>Add to cart</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-visual visual-three">
+            <span class="badge">Popular</span>
+          </div>
+          <div class="product-meta">
+            <div class="product-top">
+              <span>Accessories</span>
+              <span>★ 5.0</span>
+            </div>
+            <h3>Glow Mini Lamp</h3>
+            <div class="product-footer">
+              <span class="price">$29</span>
+              <button>Add to cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container promo">
+      <div class="promo-box">
+        <div class="promo-copy">
+          <div class="promo-kicker">Weekend drop</div>
+          <h2>Color your space, one joyful detail at a time.</h2>
+          <p>Refresh your everyday with home and lifestyle pieces designed to feel uplifting, polished, and delightfully practical.</p>
+
+          <div class="promo-actions">
+            <a href="#" class="promo-btn primary">Shop the drop</a>
+            <a href="#" class="promo-btn secondary">Explore more</a>
+          </div>
+        </div>
+
+        <div class="promo-visual" aria-label="Promotional product visual"></div>
+      </div>
+    </section>
+
+    <section class="container testimonials">
+      <div class="testimonial-head">
+        <h2>Why shoppers keep coming back</h2>
+      </div>
+
+      <div class="testimonial-grid">
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>“The quality is beautiful and the whole experience feels fresh, easy, and genuinely fun. I keep ordering gifts for friends.”</p>
+          <div class="person">
+            <div class="avatar">A</div>
+            <div>
+              <div class="person-name">Ariana M.</div>
+              <div class="person-role">Interior lover</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>“Every item feels considered and elevated, but still relaxed and approachable. It fits my style perfectly without trying too hard.”</p>
+          <div class="person">
+            <div class="avatar">L</div>
+            <div>
+              <div class="person-name">Lina S.</div>
+              <div class="person-role">Lifestyle shopper</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>“It’s rare to find a shop that feels both playful and premium. The packaging and the pieces are genuinely delightful.”</p>
+          <div class="person">
+            <div class="avatar">J</div>
+            <div>
+              <div class="person-name">Jules T.</div>
+              <div class="person-role">Repeat customer</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container newsletter">
+      <div class="newsletter-box">
+        <div class="newsletter-copy">
+          <h2>Stay in the loop.</h2>
+          <p>Get early access to new drops, curated picks, and exclusive offers.</p>
+        </div>
+
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" aria-label="Email address" />
+          <button type="submit">Join now</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 HeDot. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Support</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
